@@ -42,8 +42,46 @@
     }
   }
 
-  const maker = new CoffeMaker(50); //이 경우에 외부에서 새로운 instance를 만들 수 있다. 그러나 constructor이 private로 설정된 경우에는 아래와 같이 CoffeeMaker안에 함수에 접근해 새로운 instance를 생성 해야한다.
-  const maker2 = CoffeMaker.makeMachine(50);
-  maker.coffeeBeans = 3; //이렇게 외부에서 coffeeBeans 의 값을 건드릴 수 있는것은 위험하다. coffeeBeans에 private를 사용하여 접근을 못하게했다. 어떻게 접근할 수 있을까?
-  maker.fillCoffeeBeans(30); //class 안에 바로 coffeeBeans에 접근 하는것이 아니라 함수를 거쳐서 coffeeeBeans를 건드린다.
+  // const maker = new CoffeMaker(50); //이 경우에 외부에서 새로운 instance를 만들 수 있다. 그러나 constructor이 private로 설정된 경우에는 아래와 같이 CoffeeMaker안에 함수에 접근해 새로운 instance를 생성 해야한다.
+  // const maker2 = CoffeMaker.makeMachine(50);
+  // maker.coffeeBeans = 3; //이렇게 외부에서 coffeeBeans 의 값을 건드릴 수 있는것은 위험하다. coffeeBeans에 private를 사용하여 접근을 못하게했다. 어떻게 접근할 수 있을까?
+  // maker.fillCoffeeBeans(30); //class 안에 바로 coffeeBeans에 접근 하는것이 아니라 함수를 거쳐서 coffeeeBeans를 건드린다.
+
+  // get, set 이해하기
+  // class User {
+  //   private firstName: string;                                                       //한번 생성자에 전달된 이름은 변경될수 없으면 private를 해주는것이 맞겠죠.
+  //   private lastName: string;
+  //   get fullName(): string {                                                  //get을 fullNmae이 호출될 때 그시점의 값을들 모아 새로운 값이 return 된다.
+  //     return `${this.firstName} ${this.lastName}`;
+  //   }
+  //   constructor(firstName: string, lastName: string) {
+  //     this.firstName = firstName;
+  //     this.lastName = lastName;
+  //   }
+
+  // 위의것을 아래와같이 constructor 안에서 private를 설정해주면 자동으로 멤버가 된다.
+  class User {
+    get fullName(): string {
+      //get은 User.fullNmae의 값을 읽고 싶을때 사용한다.
+      return `${this.firstName} ${this.lastName}`;
+    }
+
+    private internalAge = 4;
+    get age(): number {
+      return this.internalAge;
+    }
+
+    set age(num: number) {
+      //set은 User.age 로 값을 바꿀때 사용한다.
+      this.internalAge = num;
+    }
+
+    constructor(private firstName: string, private lastName: string) {
+      //public도 작성가능
+    }
+  }
+
+  const user = new User("steve", "Jobs");
+
+  console.log(user.fullName);
 }
