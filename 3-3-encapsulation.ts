@@ -72,7 +72,10 @@
     }
 
     set age(num: number) {
-      //set은 User.age 로 값을 바꿀때 사용한다.
+      //set은 User.age 로 값을 바꿀때 사용한다. //전달된 숫자가 정확한지 유효성 검사를 하는데도 set을 사용한다.
+      if (num < 0) {
+        throw new Error(`it couln't be under 0`);
+      }
       this.internalAge = num;
     }
 
