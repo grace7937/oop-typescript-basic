@@ -22,5 +22,4 @@
     console.log(DAYS.Monday);    // Monday 값은  0
 
    // 모바일 클라이언트 에서는 union을 쓸수 없기에 Eunm쓰지만 그외에 다른경우는 다 union으로 바꿔 쓰기!
-
 }

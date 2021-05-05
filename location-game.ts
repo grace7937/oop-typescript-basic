@@ -21,3 +21,9 @@ move('up');
 move('down');
 move('left');
 move('right');
+
+calculate = (cal: string, num: number[]) => {
+    
+
+
+}
