@@ -52,4 +52,64 @@
 
   type NumberType = number;
   type Direction = 'left' | 'right';
+
+
+  //Type과 Interface 비슷한거 같은데 언제 써야할까?
+  //데이터를 담는 용도면 Type을 쓴다. 
+  //특정한 규격을 정의하거나, 규격을 통해서 어느것이 구현된다면 Interface로 사용!
+
+  //ex) Type 
+  type Position = {
+    x: number;
+    y: number;
+  };
+  const pos: Position = {
+    x: 0,
+    y: 0
+  };
+  printPosition(pos);
+
+
+  //ex) Interface
+  interface CoffeeMaker {
+    coffeeBeans:
+  }
+
+  class CoffeeMachine implements CoffeeMaker {
+    coffeeBeans: number;
+    makeCoffee(shts: number) {
+      return {};
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  type pos = {
+    1: string;
+    2: string;
+  }
+
+  const pos: Location = {
+    1: "rigth",
+    2: "left",
+  }
+  print(pos);
+
+
+
+
+
+
+
 }
