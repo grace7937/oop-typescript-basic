@@ -15,7 +15,6 @@ function move(direction: 'up' | 'down' | 'left' | 'right') {
 }
 
 
-
 console.log(position);  // { x: 0, y: 0}
 move('up');
 move('down');
@@ -23,7 +22,5 @@ move('left');
 move('right');
 
 calculate = (cal: string, num: number[]) => {
-    
-
 
 }

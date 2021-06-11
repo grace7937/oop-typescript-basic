@@ -1,7 +1,7 @@
 {
   /**
    * Union Types: OR
-   * 발생할수 있는 타입을저의 한뒤 그중 하나만 할당될수 있도록 한다. (aliases인데 OR이 붙은 느낌 ㅎ)
+   * 발생할수 있는 타입을정의 한뒤 그중 하나만 할당될수 있도록 한다. (aliases인데 OR이 붙은 느낌 ㅎ)
    */
 
   type Direction = "left" | "right" | "up" | "down";

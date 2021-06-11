@@ -8,7 +8,7 @@
     y: number;
   }
 
-  // object ★
+  // object ★         type, interface 둘다 타입을 정의하고 object를 할당 할 수 있다.
   const obj1: PositionType = {
     x: 1,
     y: 1,
@@ -19,7 +19,8 @@
     z: 1,
   };
 
-  // class ★
+
+  // class ★           둘다 class에서 구현이 가능함
   class Pos1 implements PositionType {
     x: number;
     y: number;
@@ -29,29 +30,41 @@
     y: number;
   }
 
-  // Extends
+
+  // Extends          둘다 아래와 같은 방법으로 확장이 가능함  interface는 extends를 통해, type은 아래와같이
   interface ZPositionInterface extends PositionInterface {
     z: number;
   }
   type ZPositionType = PositionType & { z: number };
 
-  // 😆 only interfaces can be merged.
+
+
+  // 😆 only interfaces can be merged. //아래와 같이 두번 정의 해주면 PositionInterface는 합쳐지게된다 (x,y,z를 다가진다) 이것은 interface 만이 가능하다 
+
+  interface PositionInterface {
+    x: number;
+    y: number;
+  }
   interface PositionInterface {
     z: number;
   }
 
+
+
   // type PositionType {
   // }
-
-  // 😆 Type aliases can use computed properties
-  type Person = {
+  // 😆 Type aliases can use computed properties       //아래와 같이 person을 선언하고 
+  type Person = {                             
     name: string;
     age: number;
   };
-  type Name = Person['name']; // string
+  type Name = Person['name'];          // string        //person안의 name을 Name의 type으로 선언했음  
+ 
+  // only type can to that.
+  type NumberType = number;        //새로운 타입을 만드는것 
+  type Direction = 'left' | 'right';           //union type을 만드는것 
 
-  type NumberType = number;
-  type Direction = 'left' | 'right';
+
 
 
   //Type과 Interface 비슷한거 같은데 언제 써야할까?

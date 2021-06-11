@@ -17,7 +17,7 @@
     const numbers = findNumber()!;        
     numbers!.push(2);  // 😱             //!는 undefined일리 없어 무조건 배열이야 할때 쓰는거임
 
-    const button = document.querySelector('class')!;  //button은 요소, null두개가 올수 있는데 이렇게 사용하면 100퍼 button에 요소가 담기니까 !를 쓴다.
+    const button = document.querySelector('class')!;  //button은 요소, null 두개가 올수 있는데 이렇게 사용하면 100퍼 button에 요소가 담기니까 !를 쓴다.
     button.nodeValue;
 
 }
